@@ -1,0 +1,47 @@
+<div class="container">
+            <div class="col-md-4 offset-md-4">
+                <h3>You have placed your order successfully. </h3>
+            </div>
+            <h3>Order Details</h3>
+            <div>#/Items: {{ data.order.items.length }}</div>
+            <div>Subtotal: {{ data.order.subtotal | currency:"EUR":"symbol" }}</div>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <td>Product</td>
+                  <td>#</td>
+                  <td>€</td>
+                  <td>Total</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let o of data.order.items">
+                  <td>{{ o.productName }}</td>
+                  <td>{{ o.quantity }}</td>
+                  <td>{{ o.productUnitPrice | currency:"EUR":"symbol" }}</td>
+                  <td>{{ (o.productUnitPrice * o.quantity) | currency:"EUR":"symbol" }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3>Shipping Address</h3>
+            <table class="table table-sm table-hover">
+                    <thead>
+                      <tr>
+                        <td>Name</td>
+                        <td>Address1</td>
+                        <td>City</td>
+                        <td>County</td>
+                        <td>Country</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{data.order.customerName }}</td>
+                        <td>{{data.order.customerAddress1 }}</td>
+                        <td>{{data.order.customerCity }}</td>
+                        <td>{{data.order.customerCounty }}</td>
+                        <td>{{data.order.customerCountry }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+</div>
