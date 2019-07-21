@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { Shop } from './shop/shop.component';
-import { Checkout } from './checkout/checkout.component';
-import { Customer } from './customerDetails/customer.component';
-import { Confirmation } from './confirmation/confirmation.component';
+import { ShopComponent } from './shop/shop.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CustomerComponent } from './customerDetails/customer.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 export const routes: Routes = [
-  { path: "", component: Shop },
-  { path: "customer-details", component: Customer },
-  { path: "checkout", component: Checkout },
-  {path : "confirmation", component: Confirmation}
+  { path: "", component: ShopComponent },
+  { path: "customer-details", component: CustomerComponent },
+  { path: "checkout", component: CheckoutComponent },
+  {path : "confirmation", component: ConfirmationComponent}
 ];
 @NgModule({
   imports: [

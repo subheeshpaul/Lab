@@ -3,29 +3,30 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductList } from './shop/productList.component';
-import { Cart } from './shop/cart.component';
-import { Shop } from './shop/shop.component';
-import { Checkout } from './checkout/checkout.component';
-import { DataService } from './shared/dataService';
+import { ProductListComponent } from './shop/productList.component';
+import { CartComponent } from './shop/cart.component';
+import { ShopComponent } from './shop/shop.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { DataService } from './shared/data.service';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { Customer } from './customerDetails/customer.component';
-import { Confirmation } from './confirmation/confirmation.component';
+import { CustomerComponent } from './customerDetails/customer.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { HeaderInterceptor } from './Interceptor/headerInterceptor';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductList,
-    Cart,
-    Shop,
-    Checkout,
-    Customer,
-    Confirmation
+    ProductListComponent,
+    CartComponent,
+    ShopComponent,
+    CheckoutComponent,
+    CustomerComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,12 @@ import { Confirmation } from './confirmation/confirmation.component';
     AppRoutingModule
 
   ],
-  providers: [DataService],
+  providers: [DataService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,8 +3,8 @@
                 <h3>You have placed your order successfully. </h3>
             </div>
             <h3>Order Details</h3>
-            <div>#/Items: {{ data.order.items.length }}</div>
-            <div>Subtotal: {{ data.order.subtotal | currency:"EUR":"symbol" }}</div>
+            <div>#/Items: {{ dataService.order.items.length }}</div>
+            <div>Subtotal: {{ dataService.order.subtotal | currency:"EUR":"symbol" }}</div>
             <table class="table table-sm table-hover">
               <thead>
                 <tr>
@@ -15,7 +15,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let o of data.order.items">
+                <tr *ngFor="let o of dataService.order.items">
                   <td>{{ o.productName }}</td>
                   <td>{{ o.quantity }}</td>
                   <td>{{ o.productUnitPrice | currency:"EUR":"symbol" }}</td>
@@ -36,11 +36,11 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>{{data.order.customerName }}</td>
-                        <td>{{data.order.customerAddress1 }}</td>
-                        <td>{{data.order.customerCity }}</td>
-                        <td>{{data.order.customerCounty }}</td>
-                        <td>{{data.order.customerCountry }}</td>
+                        <td>{{dataService.order.customerName }}</td>
+                        <td>{{dataService.order.customerAddress1 }}</td>
+                        <td>{{dataService.order.customerCity }}</td>
+                        <td>{{dataService.order.customerCounty }}</td>
+                        <td>{{dataService.order.customerCountry }}</td>
                       </tr>
                     </tbody>
                   </table>

@@ -4,6 +4,6 @@
   selector: "the-shop",
   templateUrl: "shop.component.html"
 })
-export class Shop {
+export class ShopComponent {
 
 }

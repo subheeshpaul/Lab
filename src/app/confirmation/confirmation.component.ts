@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { DataService } from "../shared/dataService";
+import { DataService } from "../shared/data.service";
 
 @Component({
     selector: "confirmation",
     templateUrl: "confirmation.component.html",
 })
-export class Confirmation {
+export class ConfirmationComponent {
     
-    constructor( public data: DataService) {
+    constructor( public dataService: DataService) {
 
     }
    

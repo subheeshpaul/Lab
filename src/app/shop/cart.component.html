@@ -1,8 +1,8 @@
 ﻿  <h3>Shopping Cart</h3>
-  <div>#/Items: {{ data.order.items.length }}</div>
-  <div>Subtotal: {{ data.order.subtotal | currency:"EUR":"symbol" }}</div>
-  <div>TotalWeight: {{ data.order.totalWeight | number:'2.2-2' }} Kg</div>
-  <div class="text-danger" *ngIf="data.order.totalWeight > 3">Total weight of the basket should be less than 3 Kg.!</div>
+  <div>#/Items: {{ dataService.order.items.length }}</div>
+  <div>Subtotal: {{ dataService.order.subtotal | currency:"EUR":"symbol" }}</div>
+  <div>TotalWeight: {{ dataService.order.totalWeight | number:'2.2-2' }} Kg</div>
+  <div class="text-danger" *ngIf="dataService.order.totalWeight > 3">Total weight of the basket should be less than 3 Kg.!</div>
   <table class="table table-sm table-hover">
     <thead>
       <tr>
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let o of data.order.items">
+      <tr *ngFor="let o of dataService.order.items">
         <td>{{ o.productName }}</td>
         <td>{{ o.quantity }}</td>
         <td>{{ o.productUnitPrice | currency:"EUR":"symbol" }}</td>
@@ -24,6 +24,6 @@
     </tbody>
   </table>
   
-  <button class="btn btn-success" *ngIf="data.order.items.length > 0 && data.order.totalWeight <=3" (click)="onProceed()">Proceed</button>
+  <button class="btn btn-success" *ngIf="dataService.order.items.length > 0 && dataService.order.totalWeight <=3" (click)="onProceed()">Proceed</button>
   
   

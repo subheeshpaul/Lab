@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { DataService } from "../shared/dataService";
+import { DataService } from "../shared/data.service";
 import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Router } from "@angular/router";
 import { CustomerModel } from "../shared/customer";
@@ -8,7 +8,7 @@ import { CustomerModel } from "../shared/customer";
     selector: "customer",
     templateUrl: "customer.component.html",
 })
-export class Customer implements OnInit {
+export class CustomerComponent implements OnInit {
     public customerForm: FormGroup;
 
     constructor(private fb: FormBuilder, public data: DataService, private router: Router) {
